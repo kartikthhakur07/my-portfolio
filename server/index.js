@@ -15,17 +15,14 @@ app.use(express.json());
 app.use('/api/projects', projectRoutes);
 
 // Health check
-// Temporary test route — remove after Step 4
-app.get('/api/test', (req, res) => {
-  res.json([
-    { id: 1, title: 'Test Project', description: 'API is working!', tech: 'Node.js' }
-  ]);
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'ok', uptime: process.uptime() });
 });
 
 // Connect to MongoDB then start server
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {
-    console.log('Connected to MongoDB');
-    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+    console.log('✅ Connected to MongoDB');
+    app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
   })
-  .catch(err => console.error('MongoDB connection error:', err));
+  .catch(err => console.error('❌ MongoDB connection error:', err));
