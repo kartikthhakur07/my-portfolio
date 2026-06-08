@@ -28,7 +28,7 @@ function About() {
         {/* Left — Single Full Photo */}
         <div className="about-photos">
           <img
-            src="/photos/photo4.jpg"
+            src="/photos/photo1.jpg"
             alt="Kartik Thakur"
             className="about-photo-full"
             onError={(e) => {
