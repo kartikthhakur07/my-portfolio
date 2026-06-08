@@ -25,30 +25,16 @@ function About() {
   return (
     <section id="about" className="about">
       <div className="about-grid">
-        {/* Left — Photo Collage */}
+        {/* Left — Single Full Photo */}
         <div className="about-photos">
-          <div className="about-photo-deco"></div>
           <img
             src="/photos/photo4.jpg"
             alt="Kartik Thakur"
-            className="about-photo-primary"
+            className="about-photo-full"
             onError={(e) => {
               e.target.style.background = 'linear-gradient(135deg, #f0e6d8, #e8d8c4)';
-              e.target.style.display = 'block';
             }}
           />
-          <img
-            src="/photos/photo1.jpg"
-            alt="Kartik"
-            className="about-photo-secondary"
-            onError={(e) => {
-              e.target.style.display = 'none';
-            }}
-          />
-          <div className="about-experience-badge">
-            <div className="exp-num">MERN</div>
-            <div className="exp-label">Developer</div>
-          </div>
         </div>
 
         {/* Right — Text & Skills */}

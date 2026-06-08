@@ -385,78 +385,20 @@ body {
 /* About photo column */
 .about-photos {
   position: relative;
-  height: 520px;
+  height: 560px;
 }
-.about-photo-primary {
-  position: absolute;
-  width: 280px;
-  height: 380px;
+.about-photo-full {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: top center;
   border-radius: var(--radius-xl);
-  top: 0; left: 0;
   box-shadow: var(--shadow-photo);
   border: 4px solid white;
-  z-index: 2;
   transition: var(--transition);
 }
-.about-photo-primary:hover {
-  transform: scale(1.02) rotate(-1deg);
-  z-index: 3;
-}
-.about-photo-secondary {
-  position: absolute;
-  width: 220px;
-  height: 280px;
-  object-fit: cover;
-  object-position: top center;
-  border-radius: var(--radius-xl);
-  bottom: 0; right: 0;
-  box-shadow: var(--shadow-photo);
-  border: 4px solid white;
-  z-index: 2;
-  transition: var(--transition);
-}
-.about-photo-secondary:hover {
-  transform: scale(1.02) rotate(1deg);
-  z-index: 3;
-}
-.about-photo-deco {
-  position: absolute;
-  width: 150px; height: 150px;
-  background: var(--gradient);
-  border-radius: var(--radius-xl);
-  bottom: 60px; left: 200px;
-  opacity: 0.08;
-  z-index: 1;
-}
-.about-experience-badge {
-  position: absolute;
-  top: 200px; right: -10px;
-  background: white;
-  border-radius: var(--radius-lg);
-  padding: 1rem 1.25rem;
-  box-shadow: var(--shadow-card);
-  border: 1px solid var(--border);
-  z-index: 3;
-  text-align: center;
-}
-.about-experience-badge .exp-num {
-  font-size: 1.8rem;
-  font-weight: 800;
-  background: var(--gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  line-height: 1;
-}
-.about-experience-badge .exp-label {
-  font-size: 0.68rem;
-  color: var(--text-muted);
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-top: 0.25rem;
+.about-photo-full:hover {
+  transform: scale(1.01);
 }
 
 .about-text h2 {
@@ -871,13 +813,10 @@ body {
     gap: 3rem;
   }
   .about-photos {
-    height: 300px;
+    height: 320px;
   }
-  .about-photo-primary {
-    width: 200px; height: 260px;
-  }
-  .about-photo-secondary {
-    width: 170px; height: 200px;
+  .about-photo-full {
+    height: 320px;
   }
   .photo-strip-grid-3 {
     grid-template-columns: 1fr 1fr;
