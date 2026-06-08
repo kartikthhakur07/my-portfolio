@@ -35,7 +35,6 @@ function Hero() {
 
       {/* Right: Photo Display */}
       <div className="hero-visual">
-        <div className="hero-deco-ring"></div>
         <div className="hero-photo-frame">
           <img
             src="/photos/photo2.jpg"
