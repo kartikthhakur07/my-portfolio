@@ -1,71 +1,161 @@
-import { useEffect, useState } from 'react';
-import { fetchProjects } from '../api';
+const PROJECTS = [
+  {
+    id: 1,
+    title: 'Vielfi',
+    description: 'A modern web application built collaboratively. Focused on delivering a seamless and interactive user experience with clean architecture.',
+    tech: ['React', 'Node.js', 'MongoDB'],
+    github: 'https://github.com/j25aiml192-hash/vielfi',
+    live: null,
+    color: 'blue',
+  },
+  {
+    id: 2,
+    title: 'NitiSetu Frontend',
+    description: 'Frontend interface for NitiSetu — a civic-tech platform bridging citizens and government policy. Built with modern UI principles.',
+    tech: ['React', 'CSS3', 'JavaScript'],
+    github: 'https://github.com/j25aiml192-hash/nitisetu-frontend',
+    live: null,
+    color: 'purple',
+  },
+  {
+    id: 3,
+    title: 'NitiYantra',
+    description: 'An intelligent policy analysis tool. NitiYantra helps decode complex government policies and makes them accessible to everyone.',
+    tech: ['React', 'Node.js', 'REST API'],
+    github: 'https://github.com/j25aiml192-hash/NitiYantra',
+    live: null,
+    color: 'green',
+  },
+  {
+    id: 4,
+    title: 'Spendly',
+    description: 'A smart personal finance tracker to manage expenses, set budgets, and visualize spending patterns with intuitive charts.',
+    tech: ['React', 'Express', 'MongoDB'],
+    github: 'https://github.com/j25aiml192-hash/spendly',
+    live: null,
+    color: 'orange',
+  },
+  {
+    id: 5,
+    title: 'Honey Voice Assistant',
+    description: 'A Python-powered voice assistant that listens, understands, and responds. Features speech recognition, NLP, and task automation.',
+    tech: ['Python', 'SpeechRecognition', 'NLP'],
+    github: 'https://github.com/kartikthhakur07/honey-voice_assistant',
+    live: null,
+    color: 'blue',
+  },
+  {
+    id: 6,
+    title: 'Lake Watcher',
+    description: 'An environmental monitoring application for tracking lake water quality, pollution levels, and ecological health over time.',
+    tech: ['React', 'Node.js', 'MongoDB'],
+    github: 'https://github.com/kartikthhakur07/lake-watcher',
+    live: null,
+    color: 'green',
+  },
+];
+
+const colorMap = {
+  blue:   { dot: '#63b3ed', bg: 'rgba(99,179,237,0.08)',   border: 'rgba(99,179,237,0.2)'  },
+  purple: { dot: '#9f7aea', bg: 'rgba(159,122,234,0.08)', border: 'rgba(159,122,234,0.2)' },
+  green:  { dot: '#68d391', bg: 'rgba(104,211,145,0.08)', border: 'rgba(104,211,145,0.2)' },
+  orange: { dot: '#f6ad55', bg: 'rgba(246,173,85,0.08)',  border: 'rgba(246,173,85,0.2)'  },
+};
+
+function GitHubIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="15" height="15">
+      <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/>
+    </svg>
+  );
+}
+
+function ExternalIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" width="14" height="14">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+    </svg>
+  );
+}
 
 function Projects() {
-  const [projects, setProjects] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    fetchProjects()
-      .then(res => {
-        setProjects(res.data);
-        setLoading(false);
-      })
-      .catch(err => {
-        console.error(err);
-        setError('Failed to load projects.');
-        setLoading(false);
-      });
-  }, []);
-
-  if (loading) return <p style={styles.status}>Loading projects...</p>;
-  if (error) return <p style={styles.status}>{error}</p>;
-
   return (
-    <section id="projects" style={styles.section}>
-      <h2 style={styles.heading}>Projects</h2>
-      <div style={styles.grid}>
-        {projects.map(project => (
-          <div key={project._id} style={styles.card}>
-            <h3 style={styles.title}>{project.title}</h3>
-            <p style={styles.desc}>{project.description}</p>
-            <span style={styles.tech}>{project.tech}</span>
-            <div style={styles.links}>
-              {project.githubLink && (
-                <a href={project.githubLink} target="_blank" rel="noreferrer" style={styles.link}>
-                  GitHub
-                </a>
-              )}
-              {project.liveLink && (
-                <a href={project.liveLink} target="_blank" rel="noreferrer" style={styles.link}>
-                  Live Demo
-                </a>
-              )}
-            </div>
-          </div>
-        ))}
+    <section id="projects" className="projects">
+      <div className="projects-inner">
+        <div className="section-header">
+          <span className="section-label">My Work</span>
+          <h2>Featured <span className="gradient-text">Projects</span></h2>
+          <p>A collection of things I've built — from civic-tech to voice assistants.</p>
+        </div>
+
+        <div className="projects-grid">
+          {PROJECTS.map((project, idx) => {
+            const c = colorMap[project.color];
+            return (
+              <div key={project.id} className="project-card animate-in" style={{ animationDelay: `${idx * 0.08}s` }}>
+                {/* Top accent bar (shown on hover via CSS) */}
+                <div className="project-num">
+                  <span style={{ color: c.dot }}>● </span>
+                  {String(idx + 1).padStart(2, '0')}
+                </div>
+
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+
+                <div className="project-tech">
+                  {project.tech.map(t => (
+                    <span
+                      key={t}
+                      className="tech-tag"
+                      style={{ color: c.dot, background: c.bg, borderColor: c.border }}
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="project-links">
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="project-link"
+                  >
+                    <GitHubIcon />
+                    GitHub
+                  </a>
+                  {project.live && (
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="project-link"
+                    >
+                      <ExternalIcon />
+                      Live Demo
+                    </a>
+                  )}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* View all on GitHub */}
+        <div style={{ textAlign: 'center', marginTop: '3rem' }}>
+          <a
+            href="https://github.com/kartikthhakur07"
+            target="_blank"
+            rel="noreferrer"
+            className="btn-secondary"
+          >
+            <GitHubIcon />
+            View All on GitHub
+          </a>
+        </div>
       </div>
     </section>
   );
 }
-
-const styles = {
-  section: { padding: '5rem 2rem', background: '#f8fafc' },
-  heading: { textAlign: 'center', fontSize: '2rem', marginBottom: '2rem' },
-  grid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-          gap: '1.5rem', maxWidth: '900px', margin: '0 auto' },
-  card: { background: 'white', borderRadius: '12px', padding: '1.5rem',
-          border: '1px solid #e2e8f0' },
-  title: { margin: '0 0 0.5rem', fontSize: '1.1rem' },
-  desc: { color: '#64748b', fontSize: '0.9rem', marginBottom: '1rem' },
-  tech: { fontSize: '0.8rem', color: '#0369a1', background: '#e0f2fe',
-          padding: '0.25rem 0.75rem', borderRadius: '999px' },
-  links: { display: 'flex', gap: '0.75rem', marginTop: '1rem' },
-  link: { fontSize: '0.85rem', color: '#0369a1', textDecoration: 'none',
-          border: '1px solid #0369a1', padding: '0.25rem 0.75rem',
-          borderRadius: '6px' },
-  status: { textAlign: 'center', padding: '5rem 2rem', color: '#64748b' },
-};
 
 export default Projects;
