@@ -9,11 +9,11 @@ function Contact() {
       </p>
 
       <div className="contact-card">
-        <a href="mailto:kartikthakur@example.com" className="contact-email">
+        <a href="mailto:kartik07.thk@gmail.com" className="contact-email">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
             <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
           </svg>
-          kartikthakur@example.com
+          kartik07.thk@gmail.com
         </a>
 
         <div className="social-links">
@@ -45,7 +45,7 @@ function Contact() {
         </div>
       </div>
 
-      <a href="mailto:kartikthakur@example.com" className="btn-primary">
+      <a href="mailto:kartik07.thk@gmail.com" className="btn-primary">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
           <path strokeLinecap="round" strokeLinejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
         </svg>
