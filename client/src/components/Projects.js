@@ -7,6 +7,7 @@ const PROJECTS = [
     github: 'https://github.com/j25aiml192-hash/vielfi',
     live: null,
     color: 'blue',
+    icon: '🌐',
   },
   {
     id: 2,
@@ -15,7 +16,8 @@ const PROJECTS = [
     tech: ['React', 'CSS3', 'JavaScript'],
     github: 'https://github.com/j25aiml192-hash/nitisetu-frontend',
     live: null,
-    color: 'purple',
+    color: 'indigo',
+    icon: '🏛️',
   },
   {
     id: 3,
@@ -24,7 +26,8 @@ const PROJECTS = [
     tech: ['React', 'Node.js', 'REST API'],
     github: 'https://github.com/j25aiml192-hash/NitiYantra',
     live: null,
-    color: 'green',
+    color: 'sky',
+    icon: '⚙️',
   },
   {
     id: 4,
@@ -33,7 +36,8 @@ const PROJECTS = [
     tech: ['React', 'Express', 'MongoDB'],
     github: 'https://github.com/j25aiml192-hash/spendly',
     live: null,
-    color: 'orange',
+    color: 'emerald',
+    icon: '💰',
   },
   {
     id: 5,
@@ -42,7 +46,8 @@ const PROJECTS = [
     tech: ['Python', 'SpeechRecognition', 'NLP'],
     github: 'https://github.com/kartikthhakur07/honey-voice_assistant',
     live: null,
-    color: 'blue',
+    color: 'violet',
+    icon: '🎙️',
   },
   {
     id: 6,
@@ -51,29 +56,32 @@ const PROJECTS = [
     tech: ['React', 'Node.js', 'MongoDB'],
     github: 'https://github.com/kartikthhakur07/lake-watcher',
     live: null,
-    color: 'green',
+    color: 'teal',
+    icon: '🌊',
   },
 ];
 
 const colorMap = {
-  blue:   { dot: '#63b3ed', bg: 'rgba(99,179,237,0.08)',   border: 'rgba(99,179,237,0.2)'  },
-  purple: { dot: '#9f7aea', bg: 'rgba(159,122,234,0.08)', border: 'rgba(159,122,234,0.2)' },
-  green:  { dot: '#68d391', bg: 'rgba(104,211,145,0.08)', border: 'rgba(104,211,145,0.2)' },
-  orange: { dot: '#f6ad55', bg: 'rgba(246,173,85,0.08)',  border: 'rgba(246,173,85,0.2)'  },
+  blue:    { grad: 'linear-gradient(135deg,#1e3a5f,#2563eb)', tag: '#1e3a5f', tagBg: '#eff6ff', tagBorder: '#bfdbfe', glow: 'rgba(37,99,235,0.18)'  },
+  indigo:  { grad: 'linear-gradient(135deg,#312e81,#6366f1)', tag: '#3730a3', tagBg: '#eef2ff', tagBorder: '#c7d2fe', glow: 'rgba(99,102,241,0.18)' },
+  sky:     { grad: 'linear-gradient(135deg,#0369a1,#38bdf8)', tag: '#0c4a6e', tagBg: '#f0f9ff', tagBorder: '#bae6fd', glow: 'rgba(56,189,248,0.18)' },
+  emerald: { grad: 'linear-gradient(135deg,#065f46,#10b981)', tag: '#065f46', tagBg: '#ecfdf5', tagBorder: '#a7f3d0', glow: 'rgba(16,185,129,0.18)' },
+  violet:  { grad: 'linear-gradient(135deg,#4c1d95,#8b5cf6)', tag: '#4c1d95', tagBg: '#f5f3ff', tagBorder: '#ddd6fe', glow: 'rgba(139,92,246,0.18)' },
+  teal:    { grad: 'linear-gradient(135deg,#134e4a,#14b8a6)', tag: '#134e4a', tagBg: '#f0fdfa', tagBorder: '#99f6e4', glow: 'rgba(20,184,166,0.18)'  },
 };
 
 function GitHubIcon() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="15" height="15">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="14" height="14">
       <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/>
     </svg>
   );
 }
 
-function ExternalIcon() {
+function ArrowIcon() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" width="14" height="14">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" width="13" height="13">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M17 7H7M17 7v10"/>
     </svg>
   );
 }
@@ -92,49 +100,48 @@ function Projects() {
           {PROJECTS.map((project, idx) => {
             const c = colorMap[project.color];
             return (
-              <div key={project.id} className="project-card animate-in" style={{ animationDelay: `${idx * 0.08}s` }}>
-                {/* Top accent bar (shown on hover via CSS) */}
-                <div className="project-num">
-                  <span style={{ color: c.dot }}>● </span>
-                  {String(idx + 1).padStart(2, '0')}
+              <div
+                key={project.id}
+                className="project-card animate-in"
+                style={{ animationDelay: `${idx * 0.08}s`, '--card-glow': c.glow }}
+              >
+                {/* Gradient header banner */}
+                <div className="project-card-header" style={{ background: c.grad }}>
+                  <span className="project-card-icon">{project.icon}</span>
+                  <span className="project-card-num">
+                    {String(idx + 1).padStart(2, '0')}
+                  </span>
                 </div>
 
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
+                {/* Card body */}
+                <div className="project-card-body">
+                  <h3>{project.title}</h3>
+                  <p>{project.description}</p>
 
-                <div className="project-tech">
-                  {project.tech.map(t => (
-                    <span
-                      key={t}
-                      className="tech-tag"
-                      style={{ color: c.dot, background: c.bg, borderColor: c.border }}
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
+                  <div className="project-tech">
+                    {project.tech.map(t => (
+                      <span
+                        key={t}
+                        className="tech-tag"
+                        style={{ color: c.tag, background: c.tagBg, borderColor: c.tagBorder }}
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
 
-                <div className="project-links">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="project-link"
-                  >
-                    <GitHubIcon />
-                    GitHub
-                  </a>
-                  {project.live && (
-                    <a
-                      href={project.live}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="project-link"
-                    >
-                      <ExternalIcon />
-                      Live Demo
+                  <div className="project-links">
+                    <a href={project.github} target="_blank" rel="noreferrer" className="project-link">
+                      <GitHubIcon />
+                      View on GitHub
                     </a>
-                  )}
+                    {project.live && (
+                      <a href={project.live} target="_blank" rel="noreferrer" className="project-link-live" style={{ color: c.tag }}>
+                        <ArrowIcon />
+                        Live Demo
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             );
@@ -142,13 +149,8 @@ function Projects() {
         </div>
 
         {/* View all on GitHub */}
-        <div style={{ textAlign: 'center', marginTop: '3rem' }}>
-          <a
-            href="https://github.com/kartikthhakur07"
-            target="_blank"
-            rel="noreferrer"
-            className="btn-secondary"
-          >
+        <div style={{ textAlign: 'center', marginTop: '3.5rem' }}>
+          <a href="https://github.com/kartikthhakur07" target="_blank" rel="noreferrer" className="btn-secondary">
             <GitHubIcon />
             View All on GitHub
           </a>

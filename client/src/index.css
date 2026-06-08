@@ -563,86 +563,133 @@ body {
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 1.5rem;
+  gap: 1.75rem;
 }
 .project-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 2rem;
   display: flex;
   flex-direction: column;
   transition: var(--transition);
   position: relative;
   overflow: hidden;
 }
-.project-card::before {
+.project-card:hover {
+  border-color: transparent;
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px var(--card-glow, rgba(37,99,235,0.15)),
+              0 4px 20px rgba(10,15,30,0.08);
+}
+
+/* Gradient header banner */
+.project-card-header {
+  position: relative;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.75rem;
+  overflow: hidden;
+}
+.project-card-header::after {
   content: '';
   position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  background: var(--gradient);
+  inset: 0;
+  background: rgba(0,0,0,0.08);
   opacity: 0;
   transition: var(--transition);
 }
-.project-card:hover {
-  border-color: var(--border-accent);
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-deep);
+.project-card:hover .project-card-header::after { opacity: 1; }
+
+.project-card-icon {
+  font-size: 2rem;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.2));
+  z-index: 1;
 }
-.project-card:hover::before { opacity: 1; }
-.project-num {
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  margin-bottom: 1rem;
-}
-.project-card h3 {
+.project-card-num {
   font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: rgba(255,255,255,0.18);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  z-index: 1;
+  user-select: none;
+}
+
+/* Card body */
+.project-card-body {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.project-card-body h3 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
   font-weight: 800;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.6rem;
   letter-spacing: -0.01em;
   color: var(--text-primary);
 }
-.project-card p {
+.project-card-body p {
   color: var(--text-secondary);
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   line-height: 1.75;
   flex: 1;
+  margin-bottom: 1.4rem;
+}
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
   margin-bottom: 1.5rem;
 }
-.project-tech { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; }
 .tech-tag {
   font-size: 0.7rem;
   font-weight: 700;
-  letter-spacing: 0.05em;
-  padding: 0.22rem 0.7rem;
+  letter-spacing: 0.04em;
+  padding: 0.28rem 0.75rem;
   border-radius: 999px;
   border: 1px solid;
 }
-.project-links { display: flex; gap: 0.75rem; }
+.project-links { display: flex; gap: 0.75rem; align-items: center; }
 .project-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.4rem;
   font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--text-secondary);
+  font-weight: 700;
+  color: var(--text-primary);
   text-decoration: none;
-  padding: 0.45rem 1rem;
+  padding: 0.5rem 1.1rem;
   border: 1.5px solid var(--border-strong);
   border-radius: 999px;
   transition: var(--transition);
   letter-spacing: 0.02em;
+  background: white;
 }
 .project-link:hover {
-  color: var(--accent-2);
-  border-color: var(--accent-2);
-  background: var(--accent-light);
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(30,58,95,0.25);
 }
+.project-link-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  opacity: 0.8;
+  transition: var(--transition);
+}
+.project-link-live:hover { opacity: 1; }
+
 .projects-loading { text-align: center; padding: 4rem; color: var(--text-muted); }
 .spinner {
   width: 36px; height: 36px;
