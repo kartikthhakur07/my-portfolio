@@ -9,7 +9,7 @@ function Hero() {
           Hi, I'm{' '}
           <span className="gradient-text">Kartik Thakur</span>
           <br />
-          Full-Stack Developer
+          <span className="hero-sub-title">Full-Stack Developer</span>
         </h1>
 
         <p className="hero-sub">
