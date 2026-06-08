@@ -29,7 +29,7 @@ function About() {
         <div className="about-photos">
           <div className="about-photo-deco"></div>
           <img
-            src="/photos/photo1.jpg"
+            src="/photos/photo4.jpg"
             alt="Kartik Thakur"
             className="about-photo-primary"
             onError={(e) => {
@@ -38,7 +38,7 @@ function About() {
             }}
           />
           <img
-            src="/photos/photo5.jpg"
+            src="/photos/photo1.jpg"
             alt="Kartik"
             className="about-photo-secondary"
             onError={(e) => {

@@ -44,12 +44,11 @@ function Hero() {
             onError={(e) => {
               e.target.style.background = 'linear-gradient(135deg, #f0e6d8, #e8d8c4)';
               e.target.style.display = 'block';
-              e.target.alt = '';
             }}
           />
           <img
-            src="/photos/photo4.jpg"
-            alt="Kartik"
+            src="/photos/photo5.jpg"
+            alt="Kartik at Qutub Minar"
             className="hero-photo-accent"
             onError={(e) => {
               e.target.style.display = 'none';
