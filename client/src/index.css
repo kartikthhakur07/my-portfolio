@@ -603,9 +603,28 @@ body {
 .project-card:hover .project-card-header::after { opacity: 1; }
 
 .project-card-icon {
-  font-size: 2rem;
-  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.2));
+  width: 46px;
+  height: 46px;
+  background: rgba(255,255,255,0.15);
+  border: 1.5px solid rgba(255,255,255,0.3);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 1;
+  backdrop-filter: blur(8px);
+  transition: var(--transition);
+}
+.project-card:hover .project-card-icon {
+  background: rgba(255,255,255,0.25);
+  border-color: rgba(255,255,255,0.5);
+  transform: scale(1.08);
+}
+.project-card-icon svg {
+  width: 22px;
+  height: 22px;
+  color: white;
+  stroke: white;
 }
 .project-card-num {
   font-family: var(--font-display);

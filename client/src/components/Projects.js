@@ -1,3 +1,54 @@
+/* ── SVG Icons ── */
+const icons = {
+  globe: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+    </svg>
+  ),
+  landmark: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <line x1="3" y1="22" x2="21" y2="22"/>
+      <line x1="6" y1="18" x2="6" y2="11"/>
+      <line x1="10" y1="18" x2="10" y2="11"/>
+      <line x1="14" y1="18" x2="14" y2="11"/>
+      <line x1="18" y1="18" x2="18" y2="11"/>
+      <polygon points="12 2 20 7 4 7"/>
+    </svg>
+  ),
+  cpu: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="4" y="4" width="16" height="16" rx="2"/>
+      <rect x="9" y="9" width="6" height="6"/>
+      <line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/>
+      <line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/>
+      <line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/>
+      <line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/>
+    </svg>
+  ),
+  barChart: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <line x1="18" y1="20" x2="18" y2="10"/>
+      <line x1="12" y1="20" x2="12" y2="4"/>
+      <line x1="6" y1="20" x2="6" y2="14"/>
+      <line x1="2" y1="20" x2="22" y2="20"/>
+    </svg>
+  ),
+  mic: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+      <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+      <line x1="12" y1="19" x2="12" y2="23"/>
+      <line x1="8" y1="23" x2="16" y2="23"/>
+    </svg>
+  ),
+  droplet: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+    </svg>
+  ),
+};
+
 const PROJECTS = [
   {
     id: 1,
@@ -7,7 +58,7 @@ const PROJECTS = [
     github: 'https://github.com/j25aiml192-hash/vielfi',
     live: null,
     color: 'blue',
-    icon: '🌐',
+    icon: 'globe',
   },
   {
     id: 2,
@@ -17,7 +68,7 @@ const PROJECTS = [
     github: 'https://github.com/j25aiml192-hash/nitisetu-frontend',
     live: null,
     color: 'indigo',
-    icon: '🏛️',
+    icon: 'landmark',
   },
   {
     id: 3,
@@ -27,7 +78,7 @@ const PROJECTS = [
     github: 'https://github.com/j25aiml192-hash/NitiYantra',
     live: null,
     color: 'sky',
-    icon: '⚙️',
+    icon: 'cpu',
   },
   {
     id: 4,
@@ -37,7 +88,7 @@ const PROJECTS = [
     github: 'https://github.com/j25aiml192-hash/spendly',
     live: null,
     color: 'emerald',
-    icon: '💰',
+    icon: 'barChart',
   },
   {
     id: 5,
@@ -47,7 +98,7 @@ const PROJECTS = [
     github: 'https://github.com/kartikthhakur07/honey-voice_assistant',
     live: null,
     color: 'violet',
-    icon: '🎙️',
+    icon: 'mic',
   },
   {
     id: 6,
@@ -57,9 +108,10 @@ const PROJECTS = [
     github: 'https://github.com/kartikthhakur07/lake-watcher',
     live: null,
     color: 'teal',
-    icon: '🌊',
+    icon: 'droplet',
   },
 ];
+
 
 const colorMap = {
   blue:    { grad: 'linear-gradient(135deg,#1e3a5f,#2563eb)', tag: '#1e3a5f', tagBg: '#eff6ff', tagBorder: '#bfdbfe', glow: 'rgba(37,99,235,0.18)'  },
@@ -107,7 +159,9 @@ function Projects() {
               >
                 {/* Gradient header banner */}
                 <div className="project-card-header" style={{ background: c.grad }}>
-                  <span className="project-card-icon">{project.icon}</span>
+                  <div className="project-card-icon">
+                    {icons[project.icon]}
+                  </div>
                   <span className="project-card-num">
                     {String(idx + 1).padStart(2, '0')}
                   </span>

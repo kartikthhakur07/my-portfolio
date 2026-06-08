@@ -6,7 +6,7 @@ function Hero() {
         <div className="hero-badge">Available for opportunities</div>
 
         <h1>
-          Hi, I'm{' '}
+          Hi, I'm{'\n'}
           <span className="gradient-text">Kartik Thakur</span>
           <br />
           <span className="hero-sub-title">Full-Stack Developer</span>
